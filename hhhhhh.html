@@ -67,15 +67,23 @@
         <input type="text" id="image-path">
     </div>
     <div class="input-container">
-        <label for="data-input">Enter Data:</label>
+        <label for="data-input">Enter Data 1:</label>
         <input type="text" id="data-input">
     </div>
     <div class="input-container">
-        <label for="position-input">Enter Position:</label>
+        <label for="position-input">Enter Position 1:</label>
         <input type="text" id="position-input">
     </div>
     <div class="input-container">
-        <button onclick="addData()">Submit</button>
+        <label for="data-input-2">Enter Data 2:</label>
+        <input type="text" id="data-input-2">
+    </div>
+    <div class="input-container">
+        <label for="position-input-2">Enter Position 2:</label>
+        <input type="text" id="position-input-2">
+    </div>
+    <div class="input-container">
+        <button onclick="addData()">Add Data</button>
     </div>
 </div>
 <div id="image-container"></div>
@@ -83,18 +91,25 @@
 <script>
     function addData() {
         const imagePath = document.getElementById('image-path').value;
-        const data = document.getElementById('data-input').value;
-        const position = document.getElementById('position-input').value;
+        const data1 = document.getElementById('data-input').value;
+        const position1 = document.getElementById('position-input').value;
+        const data2 = document.getElementById('data-input-2').value;
+        const position2 = document.getElementById('position-input-2').value;
 
         const imageElement = document.createElement('img');
         imageElement.src = imagePath;
         document.getElementById('image-container').innerHTML = '';
         document.getElementById('image-container').appendChild(imageElement);
 
-        const dataElement = document.createElement('div');
-        dataElement.textContent = data;
-        dataElement.classList.add('data', position);
-        document.getElementById('image-container').appendChild(dataElement);
+        const dataElement1 = document.createElement('div');
+        dataElement1.textContent = data1;
+        dataElement1.classList.add('data', position1);
+        document.getElementById('image-container').appendChild(dataElement1);
+
+        const dataElement2 = document.createElement('div');
+        dataElement2.textContent = data2;
+        dataElement2.classList.add('data', position2);
+        document.getElementById('image-container').appendChild(dataElement2);
     }
 </script>
 </body>
