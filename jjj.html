@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Data Positioning</title>
+<style>
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .input-container {
+        width: 30%;
+    }
+
+    #image-container {
+        position: relative;
+        width: 300px; /* Set your desired image width */
+    }
+
+    #image-container img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .data {
+        position: absolute;
+        font-size: 14px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 5px;
+    }
+
+    .top {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .bottom {
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .left {
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+
+    .right {
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="input-container">
+        <label for="image-path">Image Path:</label>
+        <input type="text" id="image-path">
+    </div>
+    <div class="input-container">
+        <label for="data-input">Enter Data:</label>
+        <input type="text" id="data-input">
+    </div>
+    <div class="input-container">
+        <label for="position-input">Enter Position:</label>
+        <input type="text" id="position-input">
+    </div>
+    <div class="input-container">
+        <button onclick="addData()">Submit</button>
+    </div>
+</div>
+<div id="image-container"></div>
+
+<script>
+    function addData() {
+        const imagePath = document.getElementById('image-path').value;
+        const data = document.getElementById('data-input').value;
+        const position = document.getElementById('position-input').value;
+
+        const imageElement = document.createElement('img');
+        imageElement.src = imagePath;
+        document.getElementById('image-container').innerHTML = '';
+        document.getElementById('image-container').appendChild(imageElement);
+
+        const dataElement = document.createElement('div');
+        dataElement.textContent = data;
+        dataElement.classList.add('data', position);
+        document.getElementById('image-container').appendChild(dataElement);
+    }
+</script>
+</body>
+</html>

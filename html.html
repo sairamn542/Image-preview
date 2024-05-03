@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+        .right-align {
+            text-align: right;
+        }
+
+        .left-align {
+            text-align: left;
+        }
+        .top-align {
+        }
+        .bottom-align {
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div><input type="text" id="img"></div>
+        <div><input type="text" id="data"></div>
+        <div><input type="text" id="position"></div>
+        <button onclick="Submit()">Submit</button>
+    </div>
+    <script>
+        function Submit() {
+            var img = document.getElementById('img').value;
+            var data = document.getElementById('data').value;
+            var position = document.getElementById('position').value;
+
+            var div = document.createElement('div');
+            div.className = 'DIV'
+            var image = document.createElement('img');
+            var val = document.createElement('p');
+            
+            image.src = img; // Set image source
+            val.textContent = data; // Set paragraph content
+
+            div.appendChild(image); // Append image to div
+            div.appendChild(val); // Append paragraph to div
+            
+            // Apply appropriate CSS class based on position value
+            if (position === 'right') {
+                val.classList.add('right-align');
+            } else if (position === 'left') {
+                val.classList.add('left-align');
+            }
+
+            document.body.appendChild(div); // Append div to body
+        }
+    </script>
+</body>
+</html>
